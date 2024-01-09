@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="formstyle.css" />
+
+    <link rel="stylesheet" href="/webfonts.css" type="text/css" />
+    <title>Sign up</title>
+  </head>
+
+  <body>
+    <section class="sectionContacts">
+      <div class="contactsContainer">
+        <h2 class="contactsHeader">Contacts</h2>
+
+        <div class="contactDataContainer">
+          <p class="contactData">Name</p>
+          <p class="contactData">Email</p>
+        </div>
+
+        <!-- contactos ejemplo -->
+
+        <div class="profileContainer">
+          <span class="profileAvatar"> </span>
+          <span class="profileName">Dani RL</span>
+          <p class="profileEmail">danielramon117@gmail.com</p>
+        </div>
+
+        <div class="profileContainer contactData">
+          <span class="profileAvatar contactData"> </span>
+          <span class="profileName">Dani RL</span>
+          <p class="profileEmail">danielramon117@gmail.com</p>
+        </div>
+
+        <button class="addContact--btn">+</button>
+        <!-- contactos ejemplo end -->
+      </div>
+    </section>
+
+    <section class="sectionSignUp hideModule">
+      <form class="signUpForm">
+        <ion-icon class="formIcon" name="person-outline"></ion-icon>
+        <input
+          class="inputForm col--span2 firstNameQ"
+          name="first-name"
+          placeholder="First name"
+          type="text"
+          required
+        />
+        <input
+          class="inputForm col--span2 lastNameQ"
+          name="last-name"
+          placeholder="Last name"
+          type="text"
+          required
+        />
+
+        <ion-icon class="formIcon" name="business-outline"></ion-icon>
+        <input
+          class="inputForm col--span2 companyNameQ"
+          name="company-name"
+          type="text"
+          placeholder="Company"
+        />
+        <input
+          class="inputForm col--span2 jobTitleQ"
+          name="job-title"
+          type="text"
+          placeholder="Job title"
+        />
+
+        <ion-icon class="formIcon" name="mail-outline"></ion-icon>
+        <input
+          class="inputForm col--span4 emailAdressQ"
+          name="email-adress"
+          type="email"
+          placeholder="Email"
+          required
+        />
+
+        <ion-icon class="formIcon" name="call"></ion-icon>
+        <select
+          class="selectForm selectOption phoneQ"
+          name="country-phone"
+          type="selectOption"
+          required
+        >
+          <option value="brasil">🇧🇷</option>
+          <option value="méxico">🇲🇽</option>
+          <option value="chile">🇨🇱</option>
+        </select>
+
+        <div class="col--span2 phoneContainer">
+          <label class="phoneLegend">Phone </label>
+          <input
+            class="inputForm phoneInput"
+            name="phone-number"
+            type="number"
+            placeholder="55"
+          />
+        </div>
+
+        <input
+          class="inputForm phoneLabelQ"
+          name="phone-label"
+          placeholder="Label"
+          type="text"
+          required
+        />
+
+        <ion-icon class="formIcon" name="gift-outline"></ion-icon>
+        <select
+          class="selectForm col--span2 birthMonthQ"
+          name="birthMonth"
+          required
+          type="Month"
+        >
+          <option class="selectOption" value="">Month</option>
+          <option value="january">january</option>
+          <option value="february">february</option>
+          <option value="march">march</option>
+          <option value="april">april</option>
+          <option value="may">may</option>
+          <option value="june">june</option>
+          <option value="july">july</option>
+          <option value="august">august</option>
+          <option value="september">september</option>
+          <option value="october">october</option>
+          <option value="november">november</option>
+          <option value="december">december</option>
+        </select>
+        <input
+          class="inputForm birthDayQ"
+          name="birthDay"
+          placeholder="Day"
+          type="number"
+          required
+        />
+        <input
+          class="inputForm birthYearQ"
+          name="birthYear"
+          placeholder="Year"
+          type="number"
+          required
+        />
+
+        <ion-icon class="formIcon notesIcon" name="document-outline"></ion-icon>
+        <textarea
+          class="row--span2 col--span4 inputForm textAreaForm"
+          placeholder="Notes"
+          type="text"
+        ></textarea>
+
+        <button class="btnSubmit">Submit</button>
+      </form>
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
