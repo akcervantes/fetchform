@@ -13,6 +13,20 @@ function elementFromHtml(html) {
   return template.content.firstElementChild;
 }
 
+////loading module
+
+const loadModal = document.querySelector(".modal");
+const loadOverlay = document.querySelector(".overlay");
+
+const hideModal = function () {
+  loadModal.classList.add("hidden");
+  loadOverlay.classList.add("hidden");
+};
+const showModal = function () {
+  loadModal.classList.remove("hidden");
+  loadOverlay.classList.remove("hidden");
+};
+
 //funcion render users
 
 const renderUserData = function (arr) {
@@ -44,19 +58,52 @@ let userData = [];
 
 //fetch data
 
-fetch("https://reqres.in/api/users")
-  .then((res) => {
-    console.log(res);
-    return res.json();
-  })
-  .then((object) => {
-    console.log(object.data);
+const getContacts = function () {
+  showModal();
 
-    return object.data;
-  })
-  .then((data) => {
-    userData = Array.from(data);
-    // console.log(userData);
-    renderUserData(userData);
-  })
-  .catch((error) => console.log("error"));
+  fetch("https://reqres.in/api/users?delay=4")
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
+    .then((object) => {
+      console.log(object.data);
+
+      return object.data;
+    })
+    .then((data) => {
+      userData = Array.from(data);
+      // console.log(userData);
+
+      hideModal();
+      renderUserData(userData);
+    })
+    .catch((error) => console.log("error"));
+};
+
+//get contacts boton
+const getContactsBtn = document.querySelector(".getContacts");
+getContactsBtn.addEventListener("click", getContacts);
+
+//add contact form
+
+const inputFirstName = document.querySelector(".firstNameQ");
+const inputLastName = document.querySelector(".lastNameQ");
+const inputEmail = document.querySelector(".emailAdressQ");
+
+//submit contacts to form
+
+const btnSubmitForm = document.querySelector(".btnSubmit");
+
+const formSubmit = function () {
+  const newUser = {
+    first_Name: inputFirstName.value,
+    last_Name: inputLastName.value,
+    email: inputEmail.value,
+    avatar: "none",
+  };
+  console.log(newUser);
+  renderUserData(newUser);
+};
+
+btnSubmitForm.addEventListener("click", formSubmit);

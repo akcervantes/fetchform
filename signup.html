@@ -12,7 +12,7 @@
 
   <body>
     <section class="sectionContacts">
-      <button class="btnSubmit">Get contacts</button>
+      <button class="btnSubmit getContacts">Get contacts</button>
       <div class="contactsContainer">
         <h2 class="contactsHeader">Contacts</h2>
 
@@ -60,7 +60,7 @@
           required
         />
 
-        <ion-icon class="formIcon" name="business-outline"></ion-icon>
+        <!-- <ion-icon class="formIcon" name="business-outline"></ion-icon>
         <input
           class="inputForm col--span2 companyNameQ"
           name="company-name"
@@ -72,7 +72,7 @@
           name="job-title"
           type="text"
           placeholder="Job title"
-        />
+        /> -->
 
         <ion-icon class="formIcon" name="mail-outline"></ion-icon>
         <input
@@ -82,7 +82,7 @@
           placeholder="Email"
           required
         />
-
+        <!-- 
         <ion-icon class="formIcon" name="call"></ion-icon>
         <select
           class="selectForm selectOption phoneQ"
@@ -154,11 +154,16 @@
           class="row--span2 col--span4 inputForm textAreaForm"
           placeholder="Notes"
           type="text"
-        ></textarea>
+        ></textarea> -->
 
         <button class="btnSubmit">Submit</button>
       </form>
     </section>
+
+    <div class="modal hidden">
+      <h1>Loading Contacts...</h1>
+    </div>
+    <div class="overlay hidden"></div>
 
     <script
       type="module"
