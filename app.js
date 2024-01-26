@@ -97,20 +97,23 @@ const btnSubmitForm = document.querySelector("#submit-user");
 
 //form submit function to add new user to contacts list
 
-const formSubmit = function (event) {
 
+
+
+const formSubmit = function (event) {
+  
   event.preventDefault();
 
   const newUser = {
-    id: 7,
     email: inputEmail.value,
-    first_Name: inputFirstName.value,
-    last_Name: inputLastName.value,
+    first_name: inputFirstName.value,
+    last_name: inputLastName.value,
     avatar: "none",
   };
 
+  
 
-  fetch("https://reqres.in/api/users?delay", {
+  fetch("https://reqres.in/api/users?delay=4", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -123,14 +126,17 @@ const formSubmit = function (event) {
       return res.json();
     })
     .then((data) => {
+      console.log(data);
       
-      const addUser = Array.from(data)
+      const addUser = [data]
+
+      
       renderUserData(addUser);
     })
     .catch((error) => console.log("error", error));
 
-
-
 };
 
-btnSubmitForm.addEventListener("submit", formSubmit);
+
+
+btnSubmitForm.addEventListener("click", formSubmit);
