@@ -61,7 +61,7 @@ let userData = [];
 const getContacts = function () {
   showModal();
 
-  fetch("https://reqres.in/api/users?delay=4")
+  fetch("https://reqres.in/api/users?delay=4", )
     .then((res) => {
       console.log(res);
       return res.json();
@@ -93,17 +93,44 @@ const inputEmail = document.querySelector(".emailAdressQ");
 
 //submit contacts to form
 
-const btnSubmitForm = document.querySelector(".btnSubmit");
+const btnSubmitForm = document.querySelector("#submit-user");
 
-const formSubmit = function () {
+//form submit function to add new user to contacts list
+
+const formSubmit = function (event) {
+
+  event.preventDefault();
+
   const newUser = {
+    id: 7,
+    email: inputEmail.value,
     first_Name: inputFirstName.value,
     last_Name: inputLastName.value,
-    email: inputEmail.value,
     avatar: "none",
   };
-  console.log(newUser);
-  renderUserData(newUser);
+
+
+  fetch("https://reqres.in/api/users?delay", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newUser)})
+    .then((res) => {
+      if(!res.ok){
+        throw new Error('Network response was not ok');
+      }
+      return res.json();
+    })
+    .then((data) => {
+      
+      const addUser = Array.from(data)
+      renderUserData(addUser);
+    })
+    .catch((error) => console.log("error", error));
+
+
+
 };
 
-btnSubmitForm.addEventListener("click", formSubmit);
+btnSubmitForm.addEventListener("submit", formSubmit);
